@@ -1,0 +1,240 @@
+<div class=" container w-75 text-center my-3 productStyle">
+    <button type="button" class="btn btn-outline-dark my-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-bs-whatever="@fat">ADD New Product</button>
+        <!-- ******************************************Add new product Model*********************************************************** -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="form">
+                        <div class="form-group mb-3">
+                            <input type="text" formControlName="nameAr"
+                                [class.is-invalid]="nameAr?.invalid&& nameAr?.touched" class="form-control text-center"
+                                placeholder="Enter Arabic Name" aria-label="Username" aria-describedby="basic-addon1">
+                            <div *ngIf="nameAr?.invalid &&nameAr?.touched">
+                                <small class="text-danger" *ngIf="nameAr?.errors?.['required']">
+                                    * Arabic Name is required
+                                </small>
+                                <small class="text-danger" *ngIf="nameAr?.errors?.['minlength']">
+                                    * Minimum Length is 5 Character
+                                </small>"
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" formControlName="nameEn"
+                                [class.is-invalid]="nameEn?.invalid && nameEn?.touched" class="form-control text-center"
+                                placeholder="Enter English Name" aria-label="Username" aria-describedby="basic-addon1">
+                            <div *ngIf="nameEn?.invalid &&nameEn?.touched">
+                                <small class="text-danger" *ngIf="nameEn?.errors?.['required']">
+                                    * Arabic Name is required
+                                </small>
+                                <small class="text-danger" *ngIf="nameEn?.errors?.['minlength']">
+                                    * Minimum Length is 5 Character
+                                </small>"
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" formControlName="detailsAr" class="form-control text-center"
+                                [class.is-invalid]="detailsAr?.invalid && detailsAr?.touched"
+                                placeholder="Enter Arabic Details" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                            <div *ngIf="detailsAr?.invalid &&detailsAr?.touched">
+                                <small class="text-danger" *ngIf="detailsAr?.errors?.['required']">
+                                    * Arabic Details is required
+                                </small>
+                                <small class="text-danger" *ngIf="detailsAr?.errors?.['minlength']">
+                                    * Minimum Length is 15 Character
+                                </small>"
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" formControlName="detailsEn" class="form-control text-center"
+                                [class.is-invalid]="detailsEn?.invalid && detailsEn?.touched"
+                                placeholder=" Enter English Details" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                            <div *ngIf="detailsEn?.invalid &&detailsEn?.touched">
+                                <small class="text-danger" *ngIf="detailsEn?.errors?.['required']">
+                                    * Arabic Details is required
+                                </small>
+                                <small class="text-danger" *ngIf="detailsEn?.errors?.['minlength']">
+                                    * Minimum Length is 15 Character
+                                </small>"
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="number" formControlName="price" class="form-control text-center"
+                                [class.is-invalid]="price?.invalid && price?.touched"
+                                aria-label="Amount (to the nearest dollar)" placeholder="Enter Price ">
+                            <small class="text-danger" [class.d-none]="price?.valid||price?.untouched">
+                                * Price Is required
+                            </small>
+                        </div>
+                        <div class="input-group mb-3">
+                            <!-- <img src="" alt=""> -->
+                            <!-- <input type="file" class="form-control text-center" formControlName="productImage"
+                                id="inputGroupFile01"> -->
+<!--
+  <div class="image my-2 col-md-6">
+            <label for="image">Images<span class="text-danger ms-2">*</span></label>
+            <input id="image" #myInputFile multiple="" type="file" class="form-control" (change)="uploadPhoto($event.target)">
+          </div>
+
+ -->
+ <input id="image" #myInputFile multiple="" type="file" class="form-control" (change)="uploadPhoto($event.target)">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="number" formControlName="quantity" class="form-control text-center"
+                                [class.is-invalid]="quantity?.invalid && quantity?.touched"
+                                aria-label="Amount (to the nearest dollar)" placeholder="Enter Quantity">
+                            <small class="text-danger" [class.d-none]="quantity?.valid || quantity?.untouched">
+                                * Quantity Required
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <select #subC class="List form-select dropen text-center btn-outline-succes mb-3"
+                                (change)="getSubCategoryValue($event)"
+                                [class.is-invalid]="hasError && subCatID?.touched" formControlName="subCatID">
+                                <option value="defualt">Select Categoty</option>
+                                <option class="List px-3" *ngFor="let s of subCategory"  >
+                                    {{s.nameEn}}
+                                </option>
+                            </select>
+                            <small class="text-danger" [class.d-none]="subCatID?.untouched || !hasError">
+                                Please choose the Sub Category
+                            </small>
+                        </div>
+                        <div class="modal-footer container text-center bg-dark">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-success" data-bs-dismiss="modal" [disabled]="form.invalid" (click)="AddProduct(form)">Create
+                                Product</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- *************************************End ***Add  product Model*********************************************************** -->
+
+        <!-- ******************************************Start Display Data Table*********************************************************** -->
+
+    <div class="row">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <td>Product No</td>
+                    <td>Product Name</td>
+                    <td>Sub-Category</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Image</td>
+                    <td colspan="2">Update/Delete</td>
+                </tr>
+            </thead>
+            <tbody *ngIf="!loading" class="align-self-center">
+                <tr *ngFor="let p of products;index as i ">
+                    <td>{{i+1}}</td>
+                    <td>{{p.nameEn|seemore:5}}</td>
+                    <td>{{p.subCatID|getSubCategoryName}}</td>
+                    <td>{{p.price}}</td>
+                    <td>{{p.quantity}}</td>
+                    <!-- <td *ngIf="p.prductImage!=''"><img [src]="p.productImage"></td> -->
+
+                    <td><img [src]=" p.productImage||p.images[0].imageUrl"></td>
+                    <td> <button (click)="sendDataToModal(p)" class=" One my-3" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal2" data-bs-whatever="@fat"> <i class="fa fas fa-edit"></i>
+                        </button><i class="fa-light fa-trash-can-plus"></i></td>
+                    <td> <button class=" Two my-3" data-bs-toggle="modal" (click)="deleteProduct(p.productID)">
+                            <i class="fa far fa-trash"></i></button></td>
+                </tr>
+            </tbody>
+            <tfoot class="texte-center w-100" *ngIf="loading">
+                <tr>
+                    <td colspan="8">
+                        <app-spinner></app-spinner>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <!-- ******************************************End Display Data Table*********************************************************** -->
+
+
+        <!-- ******************************************Start Update product Model*********************************************************** -->
+
+        <!-- upDate Data -->
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog my-3">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="form2">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">NameAr</span>
+                                <input type="text" formControlName="nameAr" class="form-control text-center"
+                                    placeholder="Enter Arabic Name" aria-label="Username"
+                                    aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">NameEn</span>
+                                <input type="text" formControlName="nameEn" class="form-control text-center"
+                                    placeholder="English Name" aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">DetailsAr</span>
+                                <input type="text" formControlName="detailsAr" class="form-control text-center"
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">DetailsEn</span>
+                                <input type="text" formControlName="detailsEn" class="form-control text-center"
+                                    placeholder="Enter Arabic Name" aria-label="Username"
+                                    aria-describedby="basic-addon1">
+                            </div>
+                            <select class="List form-select dropen text-center btn-outline-succes mb-3"
+                                (change)="getSubCategoryValue($event)" formControlName="subCatID">
+                                <option>Select Categoty</option>
+                                <option class="List d-inline px-3 d-inline" [selected]="form.value.nameEn"
+                                    *ngFor="let s of subCategory">
+                                    {{s.nameEn}}
+                                </option>
+                            </select>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Quantity</span>
+                                <input type="number" formControlName="quantity" class="form-control"
+                                    aria-label="Amount (to the nearest dollar)">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">$ Price</span>
+                                <input type="number" formControlName="price" class="form-control"
+                                    aria-label="Amount (to the nearest dollar)">
+                            </div>
+                            <div class="input-group mb-3">
+                                <!-- <img src="" alt=""> -->
+                                <input type="file" class="form-control" formControlName="productImage"
+                                    id="inputGroupFile01">
+                            </div>
+                            <div class="modal-footer container text-center bg-dark">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                <button class="btn btn-success" (click)="updateProduct()">
+                                    UPDATE
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ******************************************End Update product Model*********************************************************** -->
+

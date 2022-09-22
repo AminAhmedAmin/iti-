@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+button {
+    font-family: "Inter", sans-serif;
+}
+
+* {
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 56px;
+    --mainColor: #009688;
+}
+
+/* Start Sidebar  */
+.offcanvas-body ul li {
+    margin-left: 5px;
+    padding: 10px 5px 10px 0;
+    margin-bottom: 5px;
+    transition: 0.1s;
+}
+
+.offcanvas-body ul li:hover,
+.offcanvas-body ul li:active {
+    background-color: white;
+    border-radius: 20px 0 0px 20px;
+}
+
+.offcanvas-body ul li:hover span,
+.offcanvas-body ul li:active span {
+    color: #282828;
+}
+
+.li-active {
+    background-color: white;
+    border-radius: 20px 0 0px 20px;
+}
+
+.li-active span {
+    color: #282828;
+}
+
+/* End Sidebar  */
+
+/* Start Cards */
+.main-content {
+    background-color: gainsboro;
+}
+
+.main-cards *,
+.recents-overview * {
+    border-radius: 10px;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.card-header .btn {
+    background-color: var(--mainColor);
+    color: white;
+    transition: 0.5s;
+    font-size: 0.77rem;
+}
+
+.card-header .btn:hover {
+    box-shadow: inset 0 0 0 30px #6360608a;
+}
+
+.card .card-body .wrapper i {
+    font-size: 3rem;
+    color: var(--mainColor);
+}
+
+.main-cards .card:hover .card-body {
+    background-color: var(--mainColor);
+    color: white;
+    cursor: pointer;
+}
+
+.main-cards .income h2,
+.income i {
+    color: white !important;
+}
+
+.main-cards .income:hover .card-body {
+    background-color: unset;
+    cursor: pointer;
+}
+
+.main-cards .card:hover .card-body .wrapper h2 {
+    color: white !important;
+}
+
+.main-cards .card:hover i {
+    color: white !important;
+}
+
+.recents-overview .table * {
+    border-radius: 0;
+}
+
+span.delivered {
+    background-color: #2ad931;
+}
+
+span.canceled {
+    background-color: #ff5151;
+}
+
+/* End Cards */
+/* Start recents   */
+.recents-overview .card,
+.new-customers .card {
+    min-height: 312px;
+}
+
+.products-table td.img-wrapper img {
+    max-width: 70px;
+    max-height: 100px;
+}
+
+/* End recents  */
+.sidebar-nav {
+    width: var(--offcanvas-width);
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link .right-icon {
+    display: inline-flex;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+    transform: rotate(180deg);
+}
+
+/* Start Shared  */
+.pagination .page-item a {
+    color: white;
+    background-color: var(--mainColor);
+}
+
+.pagination .page-item:active a {
+    color: var(--mainColor);
+    background-color: white;
+}
+
+/* End Shared  */
+
+/* Start Orders  */
+.orders {
+    background-color: gainsboro;
+}
+
+.orders .actions>div {
+    width: fit-content;
+}
+
+.orders .actions> :last-child:hover span,
+.orders .actions .cat-wrapper div:hover span {
+    color: var(--mainColor) !important;
+}
+
+.orders .actions div i:hover {
+    color: var(--mainColor);
+}
+
+.orders td i {
+    font-size: 1.5rem;
+    margin: 0 5px;
+}
+
+.orders table td {
+    width: fit-content;
+}
+
+.table-actions .delete:hover {
+    color: #ee2020;
+}
+
+.table-actions .edit:hover {
+    color: #3347b8;
+}
+
+.products-table td.img-wrapper img {
+    max-width: 70px;
+    max-height: 100px;
+}
+
+.products-table td input {
+    width: 50px;
+}
+
+/* End Orders  */
+
+@media (min-width: 992px) {
+    body {
+        overflow: auto !important;
+    }
+
+    main {
+        margin-left: 20vw;
+    }
+
+    /* this is to remove the backdrop */
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+
+    .sidebar-nav {
+        -webkit-transform: none;
+        transform: none;
+        visibility: visible !important;
+        height: calc(100% - var(--topNavbarHeight));
+        top: var(--topNavbarHeight);
+    }
+}

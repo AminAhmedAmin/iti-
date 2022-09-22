@@ -1,0 +1,118 @@
+<app-header></app-header>
+<div class="product-details py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 mb-3 ">
+                <div class="product-gallery">
+                    <div class="row px-2 text-center">
+                        <div class="col-10 p-0">
+                            <div class="small-preview p-1">
+                                <img [src]="productDetail.productImage ||productDetail.images[0].imageUrl" style="width:100%" alt=""
+                                    class="img-fluid small-img" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <div class="">
+                    <nav aria-label="breadcrumb" class="d-none d-sm-block">
+                        <ol class="info">
+                            <a routerLink="/Home" id="home" class="home fs-4 text-danger"
+                                style="text-decoration: none; ">
+                                Home
+                            </a>
+                        </ol>
+                    </nav>
+                    <h2 class="text-dark fw-bold my-3">{{productDetail.nameEn}}</h2>
+                    <!-- <i class="fa fa-usd d-inline fs-3" aria-hidden="true"></i> -->
+                    <p class="fw-bold text-black-50 my-3 fw-bolder d-inline fs-3">{{productDetail.price|currency}}</p>
+
+                        <input type="number" style="border: 2px solid black;" [min]="1"
+                            class="me-3 mx-3 my-3 text-center px-1"  [(ngModel)]="quantity"  />
+                        <button type="button"
+                            class="btn btn-outline-success px-3 rounded-pill d-block mt-2 mt-sm-0 mx-auto mx-sm-0 d-sm-inline-block" (click)="addCart()">
+                            Add To Cart
+                        </button>
+                        <div class="d-flex px-2 mt-2 align-content-center justify-content-end lh-1">
+                            <a h>
+                                <i class="bi bi-heart" id="heart-icon"></i>
+                            </a>
+                        </div>
+                    <hr class="mt-4" />
+                    <div class="details-container pt-3">
+                        <div class="details-container-heading d-flex justify-content-center justify-content-sm-start">
+                            <h4 class="pe-2 text-uppercase text-dark">Product Details</h4>
+                            <i class="fa fa-duotone fa-star-exclamation"></i>
+                            <i class="fa fa-thin fa-star-exclamation"></i>
+                        </div>
+                        <p class="text-black-50 w-100 fs-4 fw-bold">
+                            {{productDetail.detailsEn}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Product Details  -->
+
+
+<!-- Start Latest Products  -->
+<div class="latest-products text-center py-4" id="latest">
+  <div class="container">
+    <div class="section-title mb-5">
+      <h3 class="position-relative">Latest Laptops</h3>
+    </div>
+    <div class="row gap-1 justify-content-evenly">
+      <div class="card col-md-3 col-lg-2 product py-2 rounded-3 mb-3" *ngFor="let p of products|productNum:5" >
+        <div class="actions d-flex flex-column justify-content-between position-absolute">
+          <a  (click)="AddCart(p.productID)">
+            <i class="fa fas fa-shopping-cart fs-4 text-warning cartIcon"></i>
+          </a>
+        </div>
+        <a  class="text-decoration-none text-dark">
+          <img [src]="p.productImage" alt="" class="product-img-top rounded-3 w-100"  routerLink="/Home/{{p.productID}}" (click)="loadProducts()" />
+          <div class="product-info text-start">
+            <a style="text-decoration: none;">
+              <p class="product-describtion m-0 mt-2 text-center">{{p.nameEn|seemore:5}}</p>
+            </a>
+            <div class="product-rating text-warning m-0 my-1">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <p class="product-price fw-bold text-center">{{p.price|currency}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Latest Products  -->
+
+<!-- Start Exclusive -->
+<div class="exclusive py-5 text-md-start">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/images/zCover.png" alt="" class="img-fluid" />
+      </div>
+      <div class="col-md-6 text-white">
+        <p class="py-3">Exclusivly Available on Our Store</p>
+        <h2 class="fw-bold fs-1">Samsung Galaxy Z Flip3</h2>
+        <p class="text-capitalize mb-5">
+          Spigen Tough Armor Case Compatible with Samsung Galaxy Z Flip 3 5G - Black
+        </p>
+        <a  class="btn rounded-pill px-3 text-white">Buy Now →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Exclusive -->
+
+
+
+<app-footer></app-footer>

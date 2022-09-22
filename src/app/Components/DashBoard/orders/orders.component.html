@@ -1,0 +1,125 @@
+<!-- Start Main  -->
+<main class="orders mt-5 pt-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 my-2">
+        <h4 class="fw-bold">Orders</h4>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row">
+        <table class="table table-light align-middle text-center">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>OrderID</th>
+              <th>CustomerID</th>
+              <th>Total Price</th>
+              <th>Created At</th>
+              <th>Updated At</th>
+              <th>Remove Order</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of allOrders;index as id">
+              <td>{{id+1}}</td>
+              <td>{{order.orderID}}</td>
+              <td>{{order.userId}}</td>
+              <td>{{order.price}}</td>
+              <td>{{order.createdAt|date:'dd/MM/yyyy h:mm a'}}</td>
+              <td>{{order.updatedAt|date:'dd/MM/yyyy h:mm a'}}</td>
+
+              <td>
+                <i type="button" class="fa fa-trash-o fs-4 text-danger" data-bs-toggle="modal" data-bs-target="#myModal"
+                  (click)="getOrderId(order.orderID)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ********************************************************modal delete************************************************************* -->
+  <div class="modal modal-sm" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are Your Sure?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Do You Want to Delete this order ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteOrder()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ************************************************End Modal delete***************************************************** -->
+
+  <!-- Start Order-Products Modal  -->
+  <!-- <div class="modal fade" id="showProductsBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="showProductsBackdroplabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="showProductsBackdroplabel">
+                      (Customer Name) Order
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <table class="products-table table table-light align-middle text-center">
+                      <thead>
+                          <tr>
+                              <th>id</th>
+                              <th>prod. Name</th>
+                              <th>Details</th>
+                              <th>prod. img</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>ProductID</td>
+                              <td>This is product name.......</td>
+                              <td>.......</td>
+                              <td class="img-wrapper">
+                                  <img src="images/product-10.jpg" alt="" class="img-fluid" />
+                              </td>
+                              <td>.......</td>
+                              <td>.......</td>
+                          </tr>
+                          <tr>
+                              <td>ProductID</td>
+                              <td>This is product name.......</td>
+                              <td>.......</td>
+                              <td class="img-wrapper">
+                                  <img src="images/product-10.jpg" alt="" class="img-fluid" />
+                              </td>
+                              <td>.......</td>
+                              <td>.......</td>
+                          </tr>
+                          <tr>
+                              <td>ProductID</td>
+                              <td>This is product name.......</td>
+                              <td>.......</td>
+                              <td class="img-wrapper">
+                                  <img src="images/product-10.jpg" alt="" class="img-fluid" />
+                              </td>
+                              <td>.......</td>
+                              <td>.......</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div> -->
+  <!-- End Order-Products Modal  -->
+</main>
+<!-- End Main  -->

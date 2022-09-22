@@ -1,0 +1,61 @@
+<!-- Start Main  -->
+<main class="accounts mt-5 pt-3 adminStyle">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 my-2">
+        <h4 class="fw-bold">Accounts</h4>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row">
+        <table class="table table-light align-middle text-center">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>AdminID</th>
+              <th> Name in Arabic</th>
+              <th> Name in English</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Remove Admin Permisions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let admin of admins;index as id">
+              <td>{{id+1}}</td>
+              <td>{{admin.userID}}</td>
+              <td>{{admin.nameAr}}</td>
+              <td>{{admin.nameEn}}</td>
+              <td>{{admin.email}}</td>
+              <td>{{admin.phone}}</td>
+              <td class="table-actions">
+                <i class="fa fa-remove fs-4 text-danger" type="button" data-bs-toggle="modal" data-bs-target="#myModal" (click)="getAdminId(admin.userID)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- End Main  -->
+   <!-- ********************************************************modal delete************************************************************* -->
+   <div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are Your Sure?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Do You Want to Remove Permisions for this Admin?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="removePermision()" >Remove Permisions</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ************************************************End Modal delete***************************************************** -->
+

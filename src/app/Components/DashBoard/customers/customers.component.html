@@ -1,0 +1,42 @@
+<p>customers works!</p>
+<!-- Start Main  -->
+<main class="customers mt-5 pt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 my-2">
+                <h4 class="fw-bold">Customers</h4>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row" style="overflow-x: scroll">
+                <table class="table table-light align-middle text-center">
+                    <thead>
+                        <tr>
+                            <th>CustID</th>
+                            <th>Cust. Name En</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Joined At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let u of users">
+                            <td>{{u.userID}}</td>
+                            <td>{{u.nameEn}}</td>
+                            <td>{{u.email}}</td>
+                            <td>{{u.phone}}</td>
+                            <td>{{u.createdAt|date:'short'}}</td>
+                            <td class="table-actions">
+                                <i type="button" (click)="deleteUser(u.userID)" class="bi bi-trash delete"></i>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</main>
+<!-- End Main  -->

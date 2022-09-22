@@ -1,0 +1,27 @@
+img {
+    width: 80px
+}
+
+i {
+    font-size: 35px;
+}
+
+.One {
+    border: none;
+}
+
+.One:hover {
+    color: green;
+}
+
+.Two {
+    border: none;
+}
+
+.Two:hover {
+    color: rgb(230, 38, 4);
+}
+.productStyle{
+  padding-top: 50px;
+  padding-left: 230px;
+}

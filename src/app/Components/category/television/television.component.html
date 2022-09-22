@@ -1,0 +1,182 @@
+<form class="d-flex mx-auto w-75" role="search">
+  <div class="search-container py-2 px-3 border d-flex justify-content-between rounded-pill w-100">
+    <input type="search" name="search" class="search-field border-0 w-100" placeholder="Enter your product name..."
+      [(ngModel)]="searchValue" />
+    <button class="search-btn border-0 bg-transparent">
+      <i class="fa far fa-search"></i>
+    </button>
+  </div>
+</form>
+
+<!-- End Why Us -->
+
+<!-- Start Featured -->
+<div class="featured text-center" id="featured">
+  <div class="container">
+    <div class="section-title mb-5">
+      <h3 class="position-relative">Featured Televisions</h3>
+    </div>
+    <div class="row gap-1 justify-content-evenly">
+      <div class="card col-md-3 col-lg-2 product py-2 rounded-3 mb-3 position-relative" *ngFor="let p of products|search:searchValue"
+        >
+        <div class=" actions d-flex flex-column justify-content-between position-absolute">
+          <a  (click)="addCart(p.productID)">
+            <i class="fa fas fa-shopping-cart fs-4 text-warning cartIcon"></i>
+          </a>
+        </div>
+        <div class="text-decoration-none text-dark">
+          <img [src]="p.productImage ||p.images[0].imageUrl"  [alt]="products.namEn" class="product-img-top rounded-3 w-100" (click)="goToProductDetails(p)" />
+          <div class="product-info text-start">
+            <a href="" style="text-decoration: none;">
+              <p class="product-describtion m-0 mt-2 text-center">
+                {{p.nameEn | seemore:5}}</p>
+            </a>
+            <div class="product-rating text-warning m-0 my-1 text-center">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <p class="product-price fw-bold text-center">{{p.price|currency}}</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-- End Featured -->
+
+<!-- Start Latest Products  -->
+<div class="latest-products text-center py-4" id="latest">
+  <div class="container">
+    <div class="section-title mb-5">
+      <h3 class="position-relative">Latest Televisions</h3>
+    </div>
+    <div class="row gap-1 justify-content-evenly">
+      <div class="card col-md-3 col-lg-2 product py-2 rounded-3 mb-3" *ngFor="let p of products|productNum:5" >
+        <div class="actions d-flex flex-column justify-content-between position-absolute">
+          <a  (click)="addCart(p.productID)">
+            <i class="fa fas fa-shopping-cart fs-4 text-warning cartIcon"></i>
+          </a>
+        </div>
+        <a  class="text-decoration-none text-dark">
+          <img [src]="p.productImage ||p.images[0].imageUrl"  alt="" class="product-img-top rounded-3 w-100" (click)="goToProductDetails(p)" />
+          <div class="product-info text-start">
+            <a style="text-decoration: none;">
+              <p class="product-describtion m-0 mt-2 text-center">{{p.nameEn|seemore:5}}</p>
+            </a>
+            <div class="product-rating text-warning m-0 my-1">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <p class="product-price fw-bold text-center">{{p.price|currency}}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Latest Products  -->
+
+<!-- Start Exclusive -->
+<div class="exclusive py-5 text-md-start">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="assets/images/zCover.png" alt="" class="img-fluid" />
+      </div>
+      <div class="col-md-6 text-white">
+        <p class="py-3">Exclusivly Available on Our Store</p>
+        <h2 class="fw-bold fs-1">Samsung Galaxy Z Flip3</h2>
+        <p class="text-capitalize mb-5">
+          Spigen Tough Armor Case Compatible with Samsung Galaxy Z Flip 3 5G - Black
+        </p>
+        <a href="product-details.html" class="btn rounded-pill px-3 text-white">Buy Now →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Exclusive -->
+
+<!-- Start Testimonails -->
+<div class="testimonials text-center py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="customer-testimonial p-2">
+          <div>
+            <i class="fa fa-regular fa-comment"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur a reprehenderit deleniti
+            sapiente minima quis ad nemo beatae dolores dipisicing elit.
+            Neque corporis.
+          </p>
+          <div class="customer-rating mb-3 text-danger">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <div class="customer-info">
+            <img src="assets/images/user-1.png" alt="" class="img-fluid rounded-circle mb-2 w-50" />
+            <p class="fw-bold">Sean Parker</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="customer-testimonial p-2">
+          <div>
+            <i class="fa fa-regular fa-comment"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur a reprehenderit deleniti
+            sapiente minima quis ad nemo beatae dolores dipisicing elit.
+            Neque corporis.
+          </p>
+          <div class="customer-rating mb-3 text-danger">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <div class="customer-info">
+            <img src="assets/images/user-2.png" alt="" class="img-fluid rounded-circle mb-2 w-50" />
+            <p class="fw-bold">Sean Parker</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="customer-testimonial p-2">
+          <div>
+            <i class="fa fa-regular fa-comment"></i>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur a reprehenderit deleniti
+            sapiente minima quis ad nemo beatae dolores dipisicing elit.
+            Neque corporis.
+          </p>
+          <div class="customer-rating mb-3 text-danger">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <div class="customer-info">
+            <img src="assets/images/user-1.png" alt="" class="img-fluid rounded-circle mb-2 w-50" />
+            <p class="fw-bold">Sean Parker</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

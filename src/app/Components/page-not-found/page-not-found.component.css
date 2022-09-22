@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Righteous:400,400i,700");
+
+.main {
+    height: 100vh;
+    background: url("https://i.stack.imgur.com/Mv83H.png") 0 0 !important;
+    -webkit-animation: 20s linear 0s normal none infinite animate;
+    -moz-animation: 20s linear 0s normal none infinite animate;
+    -ms-animation: 20s linear 0s normal none infinite animate;
+    -o-animation: 20s linear 0s normal none infinite animate;
+    animation: 20s linear 0s normal none infinite animate;
+}
+
+@-webkit-keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 400px 0;
+    }
+}
+
+@-moz-keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 400px 0;
+    }
+}
+
+@-ms-keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 400px 0;
+    }
+}
+
+@-o-keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 400px 0;
+    }
+}
+
+@keyframes animate {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 400px 0;
+    }
+}
+
+h1 {
+    font-family: "Righteous" !important;
+    font-weight: 500 !important;
+    letter-spacing: -5px !important;
+    font-size: 9em !important;
+    padding-top: 100px !important;
+    color: #eee !important;
+    text-align: center;
+    opacity: 0.7;
+}
+
+p {
+    font-size: 3em !important;
+    font-family: "Righteous" !important;
+    font-weight: 500 !important;
+    color: #eee !important;
+    text-align: center;
+    opacity: 0.7;
+
+}
+
+h2 {
+    font-size: 1.5em !important;
+    font-family: "Righteous" !important;
+    font-weight: 500 !important;
+    padding-bottom: 40px;
+    color: #eee !important;
+    text-align: center;
+    opacity: 0.7;
+}
+
+a {
+    font-size: 2em !important;
+    font-family: "Righteous" !important;
+    font-weight: 500 !important;
+    color: #eee !important;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.moon>img {
+    float: right;
+    margin: 30px;
+    width: 120px !important;
+    height: 120px !important;
+}
+
+
+
+@media (max-width: 481px) {
+    h1 {
+        font-size: 9em !important;
+    }
+
+    p {
+        font-size: 3em !important;
+    }
+}

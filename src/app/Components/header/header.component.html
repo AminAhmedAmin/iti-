@@ -1,0 +1,151 @@
+<!-- Start Header  -->
+<div class="header-top bg-white py-3">
+  <div class="container">
+    <div class="row justify-content-between">
+      <ul
+        class="header-social-container list-unstyled m-0 d-none d-lg-flex gap-lg-2 col-lg-3"
+      >
+        <li>
+          <a href="#" class="social-link p-1 rounded-2">
+            <fa-icon [icon]="faFacebook" class="text-black-50"></fa-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link p-1 rounded-2">
+            <fa-icon [icon]="faTwitter" class="text-black-50"></fa-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link p-1 rounded-2">
+            <fa-icon [icon]="faInstagram" class="text-black-50"></fa-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link p-1 rounded-2">
+            <fa-icon [icon]="faLinkedinIn" class="text-black-50"></fa-icon>
+          </a>
+        </li>
+      </ul>
+
+      <div class="header-alert-news col-sm-auto">
+        <p class="m-0 text-black-50">
+          <b class="text-uppercase">Free Shipping</b>
+          This Week Order Over - $55
+        </p>
+      </div>
+
+      <div class="header-top-actions d-none d-sm-block col-sm-auto">
+        <select name="currency" class="border-0 text-black-50 me-2">
+          <option value="usd">USD</option>
+          <option value="eur">EGP</option>
+        </select>
+        <select name="language" class="border-0 text-black-50 ms-2">
+          <option value="en-US">English</option>
+          <option value="ar-AR">Arabic</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Header  -->
+
+<!-- Start Navbar -->
+<nav class="navbar navbar-expand-lg bg-white py-1 sticky-top">
+  <div class="container justify-content-between">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/images/Logo.png" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fa fa-bars"></i>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="navbarSupportedContent"
+    >
+      <!-- <form class="d-flex mx-auto w-75 myDis" role="search">
+        <div
+          class="search-container py-2 px-3 border d-flex justify-content-between rounded-pill w-100"
+        >
+          <input
+            disabled
+            type="search"
+            name="search"
+            class="search-field border-0 w-100"
+            placeholder="Enter your product name..."
+          />
+
+          <button disabled class="search-btn border-0 bg-transparent">
+            <i class="fa far fa-search"></i>
+          </button>
+        </div>
+      </form> -->
+      <ul class="navbar-nav mb-2 mb-lg-0 gap-4 d-flex align-items-end">
+        <li class="nav-item dropdown">
+          <a
+            class="dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <fa-icon [icon]="faUser" class="fs-4"></fa-icon>
+            <span *ngIf="hasLoggedin" class="me-1 ms-2"
+              >Welcome, {{ userName | seemore: 1 }}</span
+            >
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a *ngIf="!hasLoggedin" class="dropdown-item" routerLink="/signin"
+                >Sign In
+              </a>
+            </li>
+            <li>
+              <a *ngIf="!hasLoggedin" class="dropdown-item" routerLink="/signup"
+                >Sign Up</a
+              >
+            </li>
+            <li>
+              <a
+                *ngIf="hasLoggedin"
+                class="dropdown-item"
+                routerLink="/signup"
+                (click)="signOut()"
+                >Sign out</a
+              >
+            </li>
+
+            <li>
+              <a *ngIf="hasLoggedin" class="dropdown-item" routerLink="/acount"
+                >My Account</a
+              >
+            </li>
+            <li><a *ngIf="hasAdmin" class="dropdown-item"routerLink="/dashboardHome/dashboard">DashBoard</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item position-relative me-3 me-lg-0">
+          <a>
+            <i class="bi bi-cart4 fs-4" routerLink="/cart"></i>
+            <span
+              class="count cart-count position-absolute top-0 start-100 translate-middle d-flex justify-content-center align-items-center text-white"
+            >
+              {{CartsNumber}}</span
+            >
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar -->

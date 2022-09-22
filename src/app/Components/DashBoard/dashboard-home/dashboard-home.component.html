@@ -1,0 +1,261 @@
+<!-- Start Main Cards -->
+<main class="main-content mt-5 pt-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 my-2">
+                <h4 class="fw-bold">Dashboard</h4>
+            </div>
+        </div>
+        <div class="main-cards row">
+            <div class="col-md-3 mb-3">
+                <a routerLink="/dashboardHome/customers" class="text-decoration-none">
+                    <div class="card bg-white">
+                        <div class="card-body py-4">
+                            <div class="wrapper d-flex justify-content-between align-items-center">
+                                <h2 class="fw-bold text-dark">
+                                    {{usersNumber}}
+                                </h2>
+                                <i class="fa fal fa-users"></i>
+                            </div>
+                            <p class="text-black-50 fw-bold">Customers</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-3">
+                <a routerLink="/dashboardHome/products" class="text-decoration-none">
+                    <div class="card bg-white">
+                        <div class="card-body py-4">
+                            <div class="wrapper d-flex justify-content-between align-items-center">
+                                <h2 class="fw-bold text-dark">{{productNumber}}</h2>
+                                <i class="fa fal fa-shopping-bag"></i>
+                            </div>
+                            <p class="text-black-50 fw-bold">Products</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 mb-3">
+                <a routerLink="/dashboardHome/orders" class="text-decoration-none">
+                    <div class="card bg-white">
+                        <div class="card-body py-4">
+                            <div class="wrapper d-flex justify-content-between align-items-center">
+                                <h2 class="fw-bold text-dark">
+                                    {{ordersNumber}}
+                                </h2> <i class="fa fa-usd" aria-hidden="true"></i>
+                            </div>
+                            <p class="text-black-50 fw-bold">Orders</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="income col-md-3 mb-3">
+                <a href="#" class="text-decoration-none">
+                    <div class="card bg-danger border-0">
+                        <div class="card-body py-4">
+                            <div class="wrapper d-flex justify-content-between align-items-center">
+                                <h2 class="fw-bold text-dark">3.2k</h2>
+                                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                            </div>
+                            <p class="text-white-50 fw-bold">Income</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- End Main Cards -->
+
+        <!-- Start Recents -->
+        <div class="recents-overview row">
+            <div class="col-md-7 mb-3">
+                <div class="card" style="overflow-x: scroll">
+                    <div class="card-header bg-dark">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="text-light">Recent Orders</h5>
+                            <a routerLink="/dashboardHome/orders" class="btn text-decoration-none fs-6">See all →</a>
+                        </div>
+                    </div>
+                    <div class="card-body bg-white">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Order</th>
+                                    <th>Cost</th>
+                                    <th>Order Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let o of orders ;index as i">
+                                    <td *ngIf="i<5">{{o.userId|productNum:10}}</td>
+                                    <td *ngIf="i<5">{{o.orderID|productNum:5}}</td>
+                                    <!-- <td *ngIf="i<5">
+                                        <i type="button" (click)="sendDataToModal(o) class="fa fa-file-text-o fs-3"
+                                            aria-hidden="true" data-bs-toggle="modal"
+                                            data-bs-target="#orderdetailsBackdrop"></i>
+                                    </td> -->
+                                    <td *ngIf="i<5">{{o.price|currency}}</td>
+                                    <td *ngIf="i<5">{{o.createdAt|date:'short'}}</td>
+                                    <td *ngIf="i<5"> <span class="delivered py-1 px-2 rounded-pill">Delivered</span>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>Eslam Selim</td>
+                                    <td>
+                                        <i type="button" class="fa fa-file-text-o fs-3" aria-hidden="true"
+                                            data-bs-toggle="modal" data-bs-target="#orderdetailsBackdrop"></i>
+                                    </td>
+                                    <td>$2200</td>
+                                    <td>8/8/2022 10:00 PM</td>
+                                    <td>
+                                        <span class="pending bg-warning py-1 px-2 rounded-pill">Pending</span>
+                                    </td>
+                                </tr> -->
+                                <!-- <tr>
+                                    <td>Ahmed Ismail</td>
+                                    <td>
+                                        <i type="button" class="fa fa-file-text-o fs-3" data-bs-toggle="modal"
+                                            data-bs-target="#orderdetailsBackdrop"></i>
+                                    </td>
+                                    <td>$1000</td>
+                                    <td>8/8/2022 03:00 PM</td>
+                                    <td>
+                                        <span class="pending bg-warning py-1 px-2 rounded-pill">Pending</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Abdulrahman Amir</td>
+                                    <td>
+                                        <i type="button" class="fa fa-file-text-o fs-3" data-bs-toggle="modal"
+                                            data-bs-target="#orderdetailsBackdrop"></i>
+                                    </td>
+                                    <td>$560</td>
+                                    <td>9/8/2022 12:00 PM</td>
+                                    <td>
+                                        <span class="delivered py-1 px-2 rounded-pill">Delivered</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Eslam Selim</td>
+                                    <td>
+                                        <i type="button" class="fa fa-file-text-o fs-3" data-bs-toggle="modal"
+                                            data-bs-target="#orderdetailsBackdrop"></i>
+                                    </td>
+                                    <td>$250</td>
+                                    <td>15/8/2022 11:00 PM</td>
+                                    <td>
+                                        <span class="canceled py-1 px-2 rounded-pill">Canceled</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Someone Name</td>
+                                    <td>
+                                        <i type="button" class="fa fa-file-text-o fs-3" data-bs-toggle="modal"
+                                            data-bs-target="#orderdetailsBackdrop"></i>
+                                    </td>
+                                    <td>$40</td>
+                                    <td>3/9/2022 4:00 PM</td>
+                                    <td>
+                                        <span class="delivered py-1 px-2 rounded-pill">Delivered</span>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--****************************** Customers  **************************-->
+            <div class="new-customers col-md-5 mb-3">
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="text-light">New Customers</h5>
+                            <a routerLink="/dashboardHome/customers" class="btn text-decoration-none fs-6">See all →</a>
+                        </div>
+                    </div>
+                    <div class="card-body bg-white">
+                        <table class="table table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Join Date</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngIf="!loading" class="align-self-center">
+                                <tr *ngFor="let u of users;index as i ">
+                                    <td *ngIf="i<5">{{u.nameEn}}</td>
+                                    <td *ngIf="i<5">{{u.createdAt|date:'short'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Recents -->
+    </div>
+</main>
+<!-- End Main Cards -->
+
+<!-- Start Modals  -->
+<div class="modal fade" id="orderdetailsBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="orderdetailsBackdroplabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="showProductsBackdroplabel">
+                    (Customer Name) Order
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="products-table table table-light align-middle text-center">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>prod. Name</th>
+                            <th>Details</th>
+                            <th>prod. img</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ProductID</td>
+                            <td>This is product name.......</td>
+                            <td>.......</td>
+                            <td class="img-wrapper">
+                                <img src="images/product-10.jpg" alt="" class="img-fluid" />
+                            </td>
+                            <td>.......</td>
+                            <td>.......</td>
+                        </tr>
+                        <tr>
+                            <td>ProductID</td>
+                            <td>This is product name.......</td>
+                            <td>.......</td>
+                            <td class="img-wrapper">
+                                <img src="images/product-10.jpg" alt="" class="img-fluid" />
+                            </td>
+                            <td>.......</td>
+                            <td>.......</td>
+                        </tr>
+                        <tr>
+                            <td>ProductID</td>
+                            <td>This is product name.......</td>
+                            <td>.......</td>
+                            <td class="img-wrapper">
+                                <img src="images/product-10.jpg" alt="" class="img-fluid" />
+                            </td>
+                            <td>.......</td>
+                            <td>.......</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modals  -->

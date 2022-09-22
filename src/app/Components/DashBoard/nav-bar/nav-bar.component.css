@@ -1,0 +1,81 @@
+/* @import "~bootstrap-5.0/dist/css/bootstrap.min.css"; */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+body {
+    background-color: gainsboro;
+}
+
+body,
+button {
+    font-family: "Inter", sans-serif;
+}
+
+:root,
+* {
+    --offcanvas-width: 270px;
+    --topNavbarHeight: 56px;
+    --mainColor: #009688;
+}
+
+/* Start Sidebar  */
+.offcanvas {
+    width: 20vw !important;
+}
+
+.offcanvas-body ul li {
+    margin-left: 5px;
+    padding: 10px 5px 10px 0;
+    margin-bottom: 5px;
+    /* transition: 0.2s; */
+}
+
+.offcanvas-body ul li:hover,
+.offcanvas-body ul li:active {
+    background-color: white;
+    border-radius: 20px 0 0px 20px;
+}
+
+.offcanvas-body ul li:hover span,
+.offcanvas-body ul li:active span {
+    color: #282828;
+}
+
+.li-active {
+    background-color: white;
+    border-radius: 20px 0 0px 20px;
+}
+
+.li-active span {
+    color: #282828;
+}
+
+/* End Sidebar  */
+
+@media (min-width: 0px) and (max-width: 767px) {
+    .offcanvas {
+        width: 40vw !important;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        overflow: auto !important;
+    }
+
+    .offcanvas {
+        width: 20vw !important;
+    }
+
+    /* this is to remove the backdrop */
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+
+    .sidebar-nav {
+        -webkit-transform: none;
+        transform: none;
+        visibility: visible !important;
+        height: calc(100% - var(--topNavbarHeight));
+        top: var(--topNavbarHeight);
+    }
+}

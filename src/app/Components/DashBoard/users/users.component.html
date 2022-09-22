@@ -1,0 +1,83 @@
+<!-- Start Main  -->
+<main class="accounts mt-5 pt-3 adminStyle">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 my-2">
+        <h4 class="fw-bold">Accounts</h4>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row">
+        <table class="table table-light align-middle text-center">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>UserID</th>
+              <th>Name in Arabic</th>
+              <th>Name in English</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Remove User</th>
+              <th>Give Admin Permisions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users;index as id">
+              <td>{{id+1}}</td>
+              <td>{{user.userID}}</td>
+              <td>{{user.nameAr}}</td>
+              <td>{{user.nameEn}}</td>
+              <td>{{user.email}}</td>
+              <td>{{user.phone}}</td>
+              <td class="table-actions">
+                <i class="fa fa-trash fs-4 text-danger" type="button" data-bs-toggle="modal" data-bs-target="#myModal2" (click)="getUserId(user.userID)"></i>
+              </td>
+              <td class="table-actions">
+                <i class="fa fa-user-secret fs-4 text-success" type="button" data-bs-toggle="modal" data-bs-target="#myModal" (click)="getUserId(user.userID)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- End Main  -->
+   <!-- ********************************************************modal permission************************************************************* -->
+   <div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are Your Sure?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Do You Want to give admin Permisions for this user?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="givePermision()" >Give Permisions</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ************************************************End Modal permission***************************************************** -->
+  <!-- ********************************************************modal delete************************************************************* -->
+  <div class="modal" tabindex="-1" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are Your Sure?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Do You Want to remove this user?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="removeUser()" >Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ************************************************End Modal delete***************************************************** -->

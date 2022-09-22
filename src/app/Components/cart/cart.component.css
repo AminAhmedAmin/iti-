@@ -1,0 +1,22 @@
+.cart input[type="number"] {
+  width: 50px;
+  border: 2px solid var(--bs-success);
+  border-radius: 6px;
+  outline: none;
+}
+.cart table tr td {
+  vertical-align: middle;
+}
+.cart table tr td:nth-child(3) {
+  text-align: end;
+}
+.cart .total-price-summary table {
+  width: max-content;
+}
+.cart .total-price-summary table {
+  font-weight: bold;
+}
+
+.cart .checkout {
+  width: fit-content;
+}
